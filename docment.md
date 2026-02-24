@@ -1,6 +1,7 @@
 ollama: ollama.com/search
 cmd中: ollama run 模型名称     （运行模型）
 ollama api调用: http://localhost:11434/v1
+streamlit 运行命令: D:\AI_RAG_AGENT\RNGProject>streamlit run app_file_upload.py
 
 openai库基础：
 
