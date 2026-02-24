@@ -50,3 +50,20 @@ LangChain:
 7、pdf分割
     需安装pypdf (pip install pypdf)
 
+8、RunnablePassThrough
+    - as_retriever: langchain存储对象中的as_retriever方法可以返回一个Runnable接口的子类对象 
+        retriever = vector_storage.as_retriever(search_kwargs={"k"=2})
+    - RunnablePassThrough: RunnablePassThrough()在向量库查询入链中： 占位符，可以拿到链条中的输入
+    例：chain = (
+            {"input": RunnablePassThrough, "context": retriever | format_func} | prompts | model | StrOutputParser()
+    )
+    chain中第一个主键是{}, {}中第一个主键是retriever(整个链条中第一个入链)， chain.invoke({})中的输入会被RunnablePassThrough() 和 retriever同时拿到
+    
+二、RNG
+    即检索、增强和生成,主要分为两条线:
+        - 离线处理:向私有数据库(向量数据库)添加私有知识文档
+            ~ 像知识库添加未来的知识文档
+            ~ 向模型添加私有文档
+            ~ 给出模型参考资料, 规避模型幻觉(一本正经胡说八道)
+        - 在线处理:用户提问会先基于私有知识库做检索,获取参考资料,同步组装新的提示词询问大模型获取结果
+        

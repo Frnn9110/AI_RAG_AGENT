@@ -38,11 +38,10 @@ vector_chroma.add_documents(documents=docs, ids=[f'id{i}' for i in range(1, len(
 
 # vector_chroma.delete(ids=['id1'])
 
-results = vector_chroma.similarity_search('python是不是很好学', 1)
+results = vector_chroma.similarity_search('python是不是很好学', 1, filter={'source': '黑马程序员'})
 for res in results:
     print(res)
 
-results = vector_chroma.similarity_search('能赚多少钱', 1)
+results = vector_chroma.similarity_search('能赚多少钱', 3)
 for res in results:
     print(res)
-
