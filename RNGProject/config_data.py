@@ -11,3 +11,9 @@ max_split_char_number = 1000
 search_threshold = 3
 embedding_model_name = 'text-embedding-v4'
 chat_model_name = 'qwen3-max'
+
+session_config = {
+    "configurable": {
+        "session_id": "user_001",
+    }
+}

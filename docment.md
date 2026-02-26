@@ -1,7 +1,8 @@
 ollama: ollama.com/search
 cmd中: ollama run 模型名称     （运行模型）
 ollama api调用: http://localhost:11434/v1
-streamlit 运行命令: D:\AI_RAG_AGENT\RNGProject>streamlit run app_file_upload.py
+streamlit 运行命令: cd D:\AI_RAG_AGENT\RNGProject>
+                    streamlit run app_file_upload.py
 
 openai库基础：
 
@@ -68,3 +69,9 @@ LangChain:
             ~ 给出模型参考资料, 规避模型幻觉(一本正经胡说八道)
         - 在线处理:用户提问会先基于私有知识库做检索,获取参考资料,同步组装新的提示词询问大模型获取结果
         
+
+
+问题：
+    1、中断上次模型输出后，页面没有保存已输出内容
+    2、历史对话全部重新加载
+    
